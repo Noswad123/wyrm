@@ -28,7 +28,7 @@ import (
 // Lots of improvements are waiting on it
 //   - Allow Sending thumbnailGeneratorNeeded as false to preview.New()
 //     to prevent noise in test logs. Same with imagePreviewer
-func defaultModelConfig(toggleDotFile, toggleFooter, firstUse bool,
+func defaultModelConfig(toggleDotFile, toggleFooter bool,
 	firstPanelPaths []string, zClient *zoxidelib.Client) *model {
 	return &model{
 		focusPanel:      nonePanelFocus,
@@ -44,7 +44,6 @@ func defaultModelConfig(toggleDotFile, toggleFooter, firstUse bool,
 		zClient:         zClient,
 		modelQuitState:  notQuitting,
 		toggleFooter:    toggleFooter,
-		firstUse:        firstUse,
 		hasTrash:        common.InitTrash(),
 	}
 }

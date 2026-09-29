@@ -42,7 +42,6 @@ var (
 	// DataDir files
 	LastCheckVersion = filepath.Join(WyrmDataDir, "lastCheckVersion")
 	ThemeFileVersion = filepath.Join(WyrmDataDir, "themeFileVersion")
-	FirstUseCheck    = filepath.Join(WyrmDataDir, "firstUseCheck")
 	PinnedFile       = filepath.Join(WyrmDataDir, "pinned.json")
 	ToggleDotFile    = filepath.Join(WyrmDataDir, "toggleDotFile")
 	ToggleFooter     = filepath.Join(WyrmDataDir, "toggleFooter")

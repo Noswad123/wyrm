@@ -28,19 +28,6 @@ func modalBorderStyleWithAlign(height int, width int, horizontalAlignment lipglo
 		Foreground(ModalFGColor)
 }
 
-// Generate first use modal style (This modal pop up when user first use wyrm)
-func FirstUseModal(height int, width int) lipgloss.Style {
-	border := GenerateBorder()
-	return lipgloss.NewStyle().Height(height).
-		Width(width).
-		Align(lipgloss.Left, lipgloss.Center).
-		Border(border).
-		BorderForeground(ModalBorderActiveColor).
-		BorderBackground(ModalBGColor).
-		Background(ModalBGColor).
-		Foreground(ModalFGColor)
-}
-
 // Generate sort options modal border style
 func SortOptionsModalBorderStyle(height int, width int, borderBottom string) lipgloss.Style {
 	border := GenerateBorder()

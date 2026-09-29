@@ -148,9 +148,7 @@ func wyrmAppAction(_ context.Context, c *cli.Command) error {
 
 	InitConfigFile()
 
-	firstUse := checkFirstUse()
-
-	p := tea.NewProgram(internal.InitialModel(firstPanelPaths, firstUse))
+	p := tea.NewProgram(internal.InitialModel(firstPanelPaths))
 	if _, err := p.Run(); err != nil {
 		utils.PrintfAndExitf("Alas, there's been an error: %v", err)
 	}
@@ -199,20 +197,6 @@ func InitConfigFile() {
 	if err := writeConfigFile(variable.HotkeysFile, common.HotkeysTomlString); err != nil {
 		utils.PrintlnAndExit("Error writing config file:", err)
 	}
-}
-
-// Check if is the first time initializing the app, if it is create
-// use check file
-func checkFirstUse() bool {
-	file := variable.FirstUseCheck
-	firstUse := false
-	if _, err := os.Stat(file); os.IsNotExist(err) {
-		firstUse = true
-		if err = os.WriteFile(file, nil, utils.ConfigFilePerm); err != nil {
-			utils.PrintfAndExitf("Failed to create file: %v", err)
-		}
-	}
-	return firstUse
 }
 
 // Write data to the path file if it does not exists

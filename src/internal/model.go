@@ -40,9 +40,9 @@ var (
 // is passed to tea.NewProgram() which accepts tea.Model
 // Either way type 'model' is not exported, so there is not way main package can
 // be aware of it, and use it directly
-func InitialModel(firstPanelPaths []string, firstUseCheck bool) tea.Model {
+func InitialModel(firstPanelPaths []string) tea.Model {
 	toggleDotFile, toggleFooter, zClient := initialConfig(firstPanelPaths)
-	return defaultModelConfig(toggleDotFile, toggleFooter, firstUseCheck, firstPanelPaths, zClient)
+	return defaultModelConfig(toggleDotFile, toggleFooter, firstPanelPaths, zClient)
 }
 
 // Init function to be called by Bubble tea framework, sets windows title,
@@ -287,10 +287,6 @@ func (m *model) handleKeyInput(msg tea.KeyPressMsg) tea.Cmd {
 		"firstTextInput", m.firstTextInput,
 		"focusPanel", m.focusPanel,
 	)
-	if m.firstUse {
-		m.firstUse = false
-		return nil
-	}
 	var cmd tea.Cmd
 	cdOnQuit := common.Config.CdOnQuit
 	switch {
@@ -569,13 +565,6 @@ func (m *model) updateRenderForOverlay(finalRender string) string {
 		overlayX := m.fullWidth/common.CenterDivisor - m.sortModal.Width/common.CenterDivisor
 		overlayY := m.fullHeight/common.CenterDivisor - m.sortModal.Height/common.CenterDivisor
 		return stringfunction.PlaceOverlay(overlayX, overlayY, sortOptions, finalRender)
-	}
-
-	if m.firstUse {
-		introduceModal := m.introduceModalRender()
-		overlayX := m.fullWidth/common.CenterDivisor - m.helpMenu.GetWidth()/common.CenterDivisor
-		overlayY := m.fullHeight/common.CenterDivisor - m.helpMenu.GetHeight()/common.CenterDivisor
-		return stringfunction.PlaceOverlay(overlayX, overlayY, introduceModal, finalRender)
 	}
 
 	if m.typingModal.open {

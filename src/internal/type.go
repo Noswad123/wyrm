@@ -81,7 +81,6 @@ type model struct {
 	firstTextInput       bool
 	toggleFooter         bool
 	firstLoadingComplete bool
-	firstUse             bool
 
 	// This entirely disables metadata fetching. Used in test model
 	disableMetadata bool

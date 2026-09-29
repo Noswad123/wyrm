@@ -27,8 +27,6 @@ coverage.html
 # Python virtual environments
 venv/
 .venv/
-testsuite/venv/
-testsuite/.venv/
 
 # macOS-specific files
 .DS_Store

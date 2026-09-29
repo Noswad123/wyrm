@@ -90,31 +90,6 @@ func (m *model) typineModalRender() string {
 		Render(fileLocation + "\n" + m.typingModal.textInput.View() + "\n\n" + tip)
 }
 
-func (m *model) introduceModalRender() string {
-	title := common.SidebarTitleStyle.Render(" Thanks for using wyrm!!") +
-		common.ModalStyle.Render("\n You can read the following information before starting to use it!")
-	vimUserWarn := common.ProcessErrorStyle.Render("  ** Very importantly ** If you are a Vim/Nvim user, go to:\n" +
-		"  https://wyrm.dev/configure/custom-hotkeys/ to change your hotkey settings!")
-	subOne := common.SidebarTitleStyle.Render("  (1)") +
-		common.ModalStyle.Render(" If this is your first time, make sure you read:\n"+
-			"      https://wyrm.dev/getting-started/tutorial/")
-	subTwo := common.SidebarTitleStyle.Render("  (2)") +
-		common.ModalStyle.Render(" If you forget the relevant keys during use,\n"+
-			"      you can press \"?\" (shift+/) at any time to query the keys!")
-	subThree := common.SidebarTitleStyle.Render("  (3)") +
-		common.ModalStyle.Render(" For more customization you can refer to:\n"+
-			"      https://wyrm.dev/")
-	subFour := common.SidebarTitleStyle.Render("  (4)") +
-		common.ModalStyle.Render(" Thank you again for using wyrm.\n"+
-			"      If you have any questions, please feel free to ask at:\n"+
-			"      https://github.com/Noswad123/wyrm\n"+
-			"      Of course, you can always open a new issue to share your idea \n"+
-			"      or report a bug!")
-	return common.FirstUseModal(m.helpMenu.GetHeight(), m.helpMenu.GetWidth()).
-		Render(title + "\n\n" + vimUserWarn + "\n\n" + subOne + "\n\n" +
-			subTwo + "\n\n" + subThree + "\n\n" + subFour + "\n\n")
-}
-
 func (m *model) promptModalRender() string {
 	return m.promptModal.Render()
 }
