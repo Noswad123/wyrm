@@ -1,0 +1,65 @@
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - README.md
+          - CONTRIBUTING.md
+          - release/**/*.md
+          - .github/ISSUE_TEMPLATE/**
+          - .github/PULL_REQUEST_TEMPLATE/**
+          - website/README.md
+          - website/src/content/docs/**
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - go.mod
+          - go.sum
+          - .github/renovate.json
+          - website/package.json
+          - website/pnpm-lock.yaml
+
+test related:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*_test.go"
+          - testsuite/**
+          - .github/workflows/testsuite-run.yml
+          - .github/workflows/wyrm-build-test.yml
+
+theme:
+  - changed-files:
+      - any-glob-to-any-file:
+          - asset/theme/**
+          - src/wyrm_config/theme/**
+
+website:
+  - changed-files:
+      - any-glob-to-any-file:
+          - website/**
+
+new config:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/config/**
+          - src/wyrm_config/config.toml
+
+new hotkeys:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/wyrm_config/hotkeys.toml
+          - src/wyrm_config/vimHotkeys.toml
+
+packaging:
+  - changed-files:
+      - any-glob-to-any-file:
+          - Makefile
+          - build.sh
+          - flake.nix
+          - flake.lock
+          - gomod2nix.toml
+          - release/**
+          - asset/wyrm.desktop
+          - asset/wyrm.svg
+          - asset/*.metainfo.xml
+          - .github/workflows/update-gomod2nix.yml
+          - .github/workflows/winget.yml
