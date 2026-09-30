@@ -20,10 +20,16 @@ Install the CLI into your Go binary directory:
 go install github.com/Noswad123/wyrm@latest
 ```
 
-Or from a local clone:
+Or from a local clone
 
 ```bash
-go install .
+make install
+```
+
+The default install target is `~/.local/bin/wyrm`. Override it with `INSTALL_DIR`:
+
+```bash
+make install INSTALL_DIR=/usr/local/bin
 ```
 
 ## Build locally
