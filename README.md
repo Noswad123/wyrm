@@ -1,5 +1,6 @@
 # Wyrm
 
+![Wyrm](img/wyrm.png)
 Wyrm is a personal terminal file manager forked from Superfile and reshaped for the Jamal Arcana tool ecosystem.
 
 The command is:
